@@ -1,0 +1,22 @@
+This Application is an example of profiles setup for different environments like:
+- test,
+- dev,
+- staging,
+- prod
+
+As an developer you can set active profile in:
+ application.properties as:
+ spring.profiles.active=dev
+
+ application.yml as:
+ spring:
+   profiles:
+     active: dev
+
+Or in VM:
+Set program arguments in Run -> Configuration -> Edit:
+--spring.profiles.active=dev
+
+Example of endpoint usage:
+POST method:
+localhost:8080/upload?fileName=TestFile

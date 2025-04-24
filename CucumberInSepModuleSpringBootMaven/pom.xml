@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.jpk.CucumberInSepModuleSpringBootMaven</groupId>
+    <artifactId>CucumberInSepModuleSpringBootMaven</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>CucumberInSepModuleSpringBootMaven</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>ApiSpringBootApp</module>
+        <module>ApiSpringBootApp_qa_JUnit4</module>
+        <module>ApiSpringBootApp_qa_RestAssured</module>
+        <module>ApiSpringBootApp_qa_JUnit5</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${compiler.plugin.version}</version>
+                    <configuration>
+                        <source>${source.version}</source>
+                        <target>${target.version}</target>
+                        <compilerArgument>-parameters</compilerArgument>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>23</java.version>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <entitymodule.version>1.0</entitymodule.version>
+        <daomodule.version>1.0</daomodule.version>
+
+        <compiler.plugin.version>3.12.1</compiler.plugin.version>
+        <source.version>1.9</source.version>
+        <target.version>1.9</target.version>
+    </properties>
+
+</project>

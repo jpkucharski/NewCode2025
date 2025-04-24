@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mysql_write:
+    image: bitnami/mysql:8.4.2
+    container_name: mysql_write
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: replicable_db
+      MYSQL_REPLICATION_MODE: master
+      MYSQL_REPLICATION_USER: repl_user
+      MYSQL_REPLICATION_PASSWORD: repl_password
+
+    ports:
+      - "3386:3306"
+    volumes:
+      - mysql_write_data:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mysql_network
+
+  mysql_read:
+    image: bitnami/mysql:8.4.2
+    container_name: mysql_read
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_REPLICATION_MODE: slave
+      MYSQL_REPLICATION_USER: repl_user
+      MYSQL_REPLICATION_PASSWORD: repl_password
+      MYSQL_MASTER_HOST: mysql_write
+      MYSQL_MASTER_PORT_NUMBER: 3306
+      MYSQL_MASTER_ROOT_PASSWORD: admin
+
+    ports:
+      - "3387:3306"
+    depends_on:
+      - mysql_write
+    volumes:
+      - mysql_read_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_write_data:
+  mysql_read_data:
+
+networks:
+  mysql_network:

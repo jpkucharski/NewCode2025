@@ -1,0 +1,5 @@
+FROM openjdk:17
+LABEL maintainer ="jpk-cqrs-docker"
+ADD target/cqrs-app-0.0.1-SNAPSHOT.jar cqrs-app-0.0.1-SNAPSHOT.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","cqrs-app-0.0.1-SNAPSHOT.jar"]
