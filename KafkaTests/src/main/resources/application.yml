@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    port: 29092
+    bootstrap-servers: localhost:${spring.kafka.port}
+    consumer:
+      auto-offset-reset: earliest
+      group-id: group-id-1
+    topic: prod-topic
+    dlq-topic: kafka-dlq-topic

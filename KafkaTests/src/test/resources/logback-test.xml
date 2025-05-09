@@ -1,0 +1,15 @@
+<configuration>
+    <logger name="org.apache.kafka" level="INFO"/>
+    <logger name="kafka" level="INFO"/>
+    <logger name="kafka.server" level="INFO"/>
+    <logger name="kafka.log" level="INFO"/>
+    <logger name="kafka.controller" level="INFO"/>
+    <logger name="kafka.utils" level="INFO"/>
+    <logger name="org.jpk.kafka" level="INFO"/>
+    <logger name="org.springframework.kafka" level="INFO"/>
+    <logger name="org.apache.kafka.clients.consumer" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
