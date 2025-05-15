@@ -13,6 +13,11 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
+/**
+ * Best For Integration Tests.
+ * SpringBootTest with WebEnvironment is using real web http server.
+ */
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ApiRestControllerTest_SpringBootTest_WithRealWebServer {
     @Autowired
