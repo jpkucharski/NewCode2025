@@ -25,3 +25,5 @@ Cucumber test implementation:
       In this way of testing we are deploying and testing real http serve.
       Where the RestTemplate is preforming the request.
       The best for IntegrationTests!
+
+    - Parameterized Tests example
